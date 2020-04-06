@@ -2,26 +2,31 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>This is a menu page</h1>
+                <h2>Menu</h2>
             </div>
         </div>
 
-        <div class="row" v-for="record in menus" :key="record.menuCategory.id">
-            <div class="col">
-                <h3>{{record.menuCategory.categoryTitle}}</h3>
-                <hr />
+        <div class="row">
 
-                <div class="row" v-for="menuItem in record.menuItemList" :key="menuItem.id">
-                    <div>
-                        <div class="col">
-                            <h4>{{menuItem.name}} &mdash; {{menuItem.price}}</h4>
-                            <p v-if="menuItem.description">{{menuItem.description | capitalize }}</p>
-                            <p v-else>&nbsp;</p>
+            <div class="col-sm-6" v-for="record in menus" :key="record.menuCategory.id">
+                <div>
+                    <h3>{{record.menuCategory.categoryTitle}}</h3>
+                    <hr />
+
+                    <div class="row" v-for="menuItem in record.menuItemList" :key="menuItem.id">
+                        <div>
+                            <div class="col">
+                                <h4>{{menuItem.name}} &mdash; {{menuItem.price}}</h4>
+                                <p v-if="menuItem.description">{{menuItem.description | capitalize }}</p>
+                                <p v-else>&nbsp;</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
+
     </div>
 </template>
 
@@ -60,6 +65,19 @@
 </script>
 
 <style scoped>
+
+h2 {
+    font-size: 72px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: .65;
+    letter-spacing: 6px;
+    text-align: center;
+    color: #0077a0;
+    text-transform: uppercase;
+    margin-bottom: 4rem!important;
+}
 
 h3 {
     font-family: 'Source Sans Pro',sans-serif;

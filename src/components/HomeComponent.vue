@@ -2,7 +2,7 @@
     <div class="hello">
 
         <div class="container">
-            <img class="img-fluid" src="../assets/images/degrees-glassware.jpg" alt="Degrees">
+            <img class="img-fluid" src="../assets/images/Overhead-Table-HERO-Dodged.png" alt="Degrees at Columbus State">
         </div>
     </div>
 </template>
