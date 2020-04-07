@@ -27,6 +27,17 @@
 
         </div>
 
+        <div class="row mt-3">
+            <div class="col">
+                <p class="text-muted text-justify">*Consuming raw or undercooked meats, seafood or eggs may increase your risk of foodborne illness.
+                    Please inform your server if a person in your party has a food allergy or special dietary need
+                    (e.g. gluten intolerance). While we will do our best to accommodate your needs, please be aware
+                    our restaurant uses ingredients that contain all the major FDA allergens (peanuts, tree nuts, eggs,
+                    fish, shellfish, milk, soy & wheat). We offer gluten-free friendly options, however our kitchen
+                    is not completely gluten free.</p>
+            </div>
+        </div>
+
     </div>
 </template>
 
