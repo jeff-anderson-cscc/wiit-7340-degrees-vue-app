@@ -12,6 +12,7 @@
                 <div>
                     <h3>{{record.menuCategory.categoryTitle}}</h3>
                     <hr />
+                    <p v-if="record.menuCategory.categoryNotes" class="categoryNotes">{{record.menuCategory.categoryNotes}}</p>
 
                     <div class="row" v-for="menuItem in record.menuItemList" :key="menuItem.id">
                         <div>
@@ -77,45 +78,49 @@
 
 <style scoped>
 
-h2 {
-    font-size: 72px;
-    font-weight: 700;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: .65;
-    letter-spacing: 6px;
-    text-align: center;
-    color: #0077a0;
-    text-transform: uppercase;
-    margin-bottom: 4rem!important;
-}
+    .categoryNotes {
+        color: #0077a0;
+    }
 
-h3 {
-    font-family: 'Source Sans Pro',sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #0077a0;
-}
+    h2 {
+        font-size: 72px;
+        font-weight: 700;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: .65;
+        letter-spacing: 6px;
+        text-align: center;
+        color: #0077a0;
+        text-transform: uppercase;
+        margin-bottom: 4rem!important;
+    }
 
-hr {
-    width: 100%;
-    border-top: 3px solid;
-    border-color: #f4b332;
-    margin-top: 0;
-    margin-bottom: 2rem;
-}
+    h3 {
+        font-family: 'Source Sans Pro',sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #0077a0;
+    }
 
-h4 {
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 700;
-    color: #283138;
-    margin-bottom: 0;
-}
+    hr {
+        width: 100%;
+        border-top: 3px solid;
+        border-color: #f4b332;
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+
+    h4 {
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 700;
+        color: #283138;
+        margin-bottom: 0;
+    }
 
 </style>
