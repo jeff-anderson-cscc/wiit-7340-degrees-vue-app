@@ -87,7 +87,6 @@
         font-weight: 700;
         font-stretch: normal;
         font-style: normal;
-        line-height: .65;
         letter-spacing: 6px;
         text-align: center;
         color: #0077a0;
