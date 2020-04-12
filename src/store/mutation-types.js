@@ -6,3 +6,6 @@ export const ADD_CATEGORY = 'addCategory';
 export const DELETE_CATEGORY = 'deleteCategory';
 export const UPDATE_CATEGORIES = 'updateCategories';
 export const GET_ITEMS = 'getItems';
+export const ADD_MENU_ITEM = 'addMenuItem';
+export const UPDATE_MENU_ITEM = 'updateMenuItem';
+export const DELETE_MENU_ITEM = 'deleteMenuItem';

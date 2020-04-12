@@ -17,10 +17,7 @@ const statusDescriptions = new Map([
 const getMenus = async function() {
     try {
         const response = await axios.get(`${API}/public/api/menus`);
-
-        let data = parseList(response);
-
-        return data;
+        return parseList(response);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
@@ -31,10 +28,7 @@ const getMenus = async function() {
 const getCategories = async function() {
     try {
         const response = await axios.get(`${API}/api/menu/categories`);
-
-        let data = parseList(response);
-
-        return data;
+        return parseList(response);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
@@ -45,10 +39,7 @@ const getCategories = async function() {
 const getItems = async function() {
     try {
         const response = await axios.get(`${API}/api/menu/items`);
-
-        let data = parseList(response);
-
-        return data;
+        return parseList(response);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
@@ -115,6 +106,45 @@ export const getMenuItemById = async function (id) {
     }
 };
 
+const createMenuItem = async function (menuItem) {
+    try {
+        const response = await axios.post(`${API}/api/menu/items/`, menuItem);
+        return {
+            statusCode: response.status,
+            statusMessage: response.statusText,
+            data: response.data
+        }
+    } catch (error) {
+        return handleError(error);
+    }
+};
+
+const updateMenuItem = async function (menuItem) {
+    try {
+        const response = await axios.put(`${API}/api/menu/items/${menuItem.id}`, menuItem);
+        return {
+            statusCode: response.status,
+            statusMessage: response.statusText,
+            data: response.data
+        }
+    } catch (error) {
+        return handleError(error);
+    }
+};
+
+const deleteMenuItem = async function (id) {
+    try {
+        const response = await axios.delete(`${API}/api/menu/items/${id}`);
+        return {
+            statusCode: response.status,
+            statusMessage: response.statusText,
+            data: response.data
+        }
+    } catch (error) {
+        return handleError(error);
+    }
+};
+
 
 
 const parseList = response => {
@@ -160,6 +190,9 @@ export const dataService = {
     createCategory,
     deleteCategory,
     getMenuItemById,
+    updateMenuItem,
+    deleteMenuItem,
+    createMenuItem,
 };
 
 

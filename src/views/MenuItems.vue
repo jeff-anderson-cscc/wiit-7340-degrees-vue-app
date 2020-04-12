@@ -43,7 +43,7 @@
                         :message="modalMessage"
                         :isOpen="showModal"
                         @handleNo="closeModal"
-                        @handleYes="deleteArticle"
+                        @handleYes="deleteMenuItem"
                 >
                 </Modal>
             </div>
@@ -76,12 +76,13 @@
             },
         },
         async created() {
-            await this.loadArticles();
+            await this.loadMenuItems();
         },
         methods: {
-            ...mapActions(['getMenuItemsAction', 'deleteArticleAction']),
-            async loadArticles() {
+            ...mapActions(['getMenuItemsAction', 'deleteMenuItemAction', 'getCategoriesAction']),
+            async loadMenuItems() {
                 await this.getMenuItemsAction();
+                await this.getCategoriesAction();
             },
             askToDelete(menuItem) {
                 this.articleToDelete = menuItem;
@@ -92,16 +93,16 @@
             closeModal() {
                 this.showModal = false;
             },
-            async deleteArticle() {
+            async deleteMenuItem() {
                 this.closeModal();
                 if (this.articleToDelete) {
-                    await this.deleteArticleAction(this.articleToDelete.id);
+                    await this.deleteMenuItemAction(this.articleToDelete.id);
                 }
-                /** The loadArticles is not needed,
+                /** The loadMenuItems is not needed,
                  *  but it's nice to query the database
                  * in case any other changes were made by other users
                  */
-                await this.loadArticles();
+                await this.loadMenuItems();
             },
         },
         computed: {
@@ -114,6 +115,11 @@
                 return `Would you like to delete ${modalMessage} ?`;
             },
         },
+        watch: {
+            async $route() {
+                await this.loadMenuItems();
+            }
+        }
     }
 </script>
 
