@@ -1,5 +1,7 @@
 import * as axios from 'axios';
 import { API } from './config';
+import Vue from 'vue';
+
 const statusDescriptions = new Map([
     [400, 'Bad Request'],
     [401, 'Unauthorized'],
@@ -27,7 +29,13 @@ const getMenus = async function() {
 
 const getCategories = async function() {
     try {
-        const response = await axios.get(`${API}/api/menu/categories`);
+        let accessToken = await Vue.prototype.$auth.getAccessToken();
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        };
+        const response = await axios.get(`${API}/api/menu/categories`, config);
         return parseList(response);
     } catch (error) {
         // eslint-disable-next-line no-console
@@ -38,7 +46,13 @@ const getCategories = async function() {
 
 const getItems = async function() {
     try {
-        const response = await axios.get(`${API}/api/menu/items`);
+        let accessToken = await Vue.prototype.$auth.getAccessToken();
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        };
+        const response = await axios.get(`${API}/api/menu/items`,config);
         return parseList(response);
     } catch (error) {
         // eslint-disable-next-line no-console
@@ -49,7 +63,13 @@ const getItems = async function() {
 
 export const getCategoryById = async function (id) {
     try {
-        const response = await axios.get(`${API}/api/menu/categories/${id}`);
+        let accessToken = await Vue.prototype.$auth.getAccessToken();
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        };
+        const response = await axios.get(`${API}/api/menu/categories/${id}`, config);
         return parseList(response);
     } catch (error) {
         // eslint-disable-next-line no-console
@@ -59,7 +79,13 @@ export const getCategoryById = async function (id) {
 
 const updateCategory = async function (category) {
     try {
-        const response = await axios.put(`${API}/api/menu/categories/${category.id}`, category);
+        let accessToken = await Vue.prototype.$auth.getAccessToken();
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        };
+        const response = await axios.put(`${API}/api/menu/categories/${category.id}`, category, config);
         return {
             statusCode: response.status,
             statusMessage: response.statusText,
@@ -72,7 +98,13 @@ const updateCategory = async function (category) {
 
 const createCategory = async function (category) {
     try {
-        const response = await axios.post(`${API}/api/menu/categories/`, category);
+        let accessToken = await Vue.prototype.$auth.getAccessToken();
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        };
+        const response = await axios.post(`${API}/api/menu/categories/`, category, config);
         return {
             statusCode: response.status,
             statusMessage: response.statusText,
@@ -85,7 +117,13 @@ const createCategory = async function (category) {
 
 const deleteCategory = async function (id) {
     try {
-        const response = await axios.delete(`${API}/api/menu/categories/${id}`);
+        let accessToken = await Vue.prototype.$auth.getAccessToken();
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        };
+        const response = await axios.delete(`${API}/api/menu/categories/${id}`, config);
         return {
             statusCode: response.status,
             statusMessage: response.statusText,
@@ -98,7 +136,13 @@ const deleteCategory = async function (id) {
 
 export const getMenuItemById = async function (id) {
     try {
-        const response = await axios.get(`${API}/api/menu/items/${id}`);
+        let accessToken = await Vue.prototype.$auth.getAccessToken();
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        };
+        const response = await axios.get(`${API}/api/menu/items/${id}`, config);
         return parseList(response);
     } catch (error) {
         // eslint-disable-next-line no-console
@@ -108,7 +152,13 @@ export const getMenuItemById = async function (id) {
 
 const createMenuItem = async function (menuItem) {
     try {
-        const response = await axios.post(`${API}/api/menu/items/`, menuItem);
+        let accessToken = await Vue.prototype.$auth.getAccessToken();
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        };
+        const response = await axios.post(`${API}/api/menu/items/`, menuItem, config);
         return {
             statusCode: response.status,
             statusMessage: response.statusText,
@@ -121,7 +171,13 @@ const createMenuItem = async function (menuItem) {
 
 const updateMenuItem = async function (menuItem) {
     try {
-        const response = await axios.put(`${API}/api/menu/items/${menuItem.id}`, menuItem);
+        let accessToken = await Vue.prototype.$auth.getAccessToken();
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        };
+        const response = await axios.put(`${API}/api/menu/items/${menuItem.id}`, menuItem, config);
         return {
             statusCode: response.status,
             statusMessage: response.statusText,
@@ -134,7 +190,13 @@ const updateMenuItem = async function (menuItem) {
 
 const deleteMenuItem = async function (id) {
     try {
-        const response = await axios.delete(`${API}/api/menu/items/${id}`);
+        let accessToken = await Vue.prototype.$auth.getAccessToken();
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        };
+        const response = await axios.delete(`${API}/api/menu/items/${id}`, config);
         return {
             statusCode: response.status,
             statusMessage: response.statusText,

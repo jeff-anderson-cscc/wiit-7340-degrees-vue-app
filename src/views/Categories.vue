@@ -76,6 +76,7 @@
             },
         },
         async created() {
+            this.isAuthenticated();
             await this.loadCategories();
         },
         methods: {
@@ -103,6 +104,9 @@
                  */
                 await this.loadCategories();
             },
+            async isAuthenticated() {
+                this.authenticated = await this.$auth.isAuthenticated()
+            },
         },
         computed: {
             ...mapState(['categories']),
@@ -113,6 +117,11 @@
                         : '';
                 return `Would you like to delete ${modalMessage} ?`;
             },
+        },
+        watch: {
+            async $route() {
+                document.title = 'Jeff Anderson — All articles';
+            }
         },
     }
 </script>
